@@ -70,13 +70,13 @@ export default function App() {
     const calendar = [
       "BEGIN:VCALENDAR",
       "VERSION:2.0",
-      "PRODID:-//Elijah James Baptism//EN",
+      "PRODID:-//Jose Ulyses Tano Duenas Jr Baptism//EN",
       "BEGIN:VEVENT",
       `DTSTART:${invitation.calendarStart}`,
       `DTEND:${invitation.calendarEnd}`,
-      "SUMMARY:The Baptism of Elijah James",
+      "SUMMARY:The Baptism of Jose Ulyses Tano Duenas Jr.",
       `LOCATION:${invitation.church}, ${invitation.churchAddress}`,
-      "DESCRIPTION:Please join us for the baptism of Elijah James. Reception to follow.",
+      "DESCRIPTION:Please join us for the baptism of Jose Ulyses Tano Duenas Jr. Reception to follow.",
       "END:VEVENT",
       "END:VCALENDAR",
     ].join("\r\n");
@@ -84,7 +84,7 @@ export default function App() {
     const url = URL.createObjectURL(new Blob([calendar], { type: "text/calendar" }));
     const link = document.createElement("a");
     link.href = url;
-    link.download = "elijah-james-baptism.ics";
+    link.download = "jose-ulysses-tano-duenas-jr-baptism.ics";
     link.click();
     URL.revokeObjectURL(url);
     setSaved(true);
@@ -143,7 +143,7 @@ export default function App() {
             <span className="envelope block" aria-hidden="true">
               <span className="envelope-back" />
               <span className="envelope-letter">
-                <span className="block font-serif text-2xl italic text-[#b27b20]">EJ</span>
+                <span className="block font-serif text-2xl italic text-[#b27b20]">Jr.</span>
                 <span className="mt-2 block h-px w-16 bg-[#c7a25a]/50" />
               </span>
               <span className="envelope-flap" />
@@ -189,14 +189,15 @@ export default function App() {
               We joyfully invite you to the baptism of
             </p>
 
-            <h1 className="gold-shimmer mt-6 pb-3 font-serif text-[clamp(4.8rem,11vw,8.75rem)] leading-[0.69] tracking-[-0.055em]">
-              <span className="block italic">Elijah</span>
-              <span className="ml-[.7em] mt-3 block text-[.54em] italic">James</span>
+            <h1 className="gold-shimmer mt-6 pb-3 font-serif text-[clamp(2.8rem,6vw,5rem)] leading-[0.82] tracking-[-0.045em]">
+              <span className="block italic">Jose</span>
+              <span className="mt-2 block italic">Ulyses</span>
+              <span className="mt-5 block text-[.52em] italic">Tano Duenas Jr.</span>
             </h1>
 
             <div className="mx-auto mt-9 flex max-w-md items-center justify-center gap-5">
               <span className="gold-rule h-px flex-1" />
-              <span className="font-serif text-3xl text-[#ad7b20]">EJ</span>
+              <span className="font-serif text-3xl text-[#ad7b20]">Jr.</span>
               <span className="gold-rule h-px flex-1" />
             </div>
 
@@ -223,9 +224,9 @@ export default function App() {
             </button>
           </div>
 
-          <div className="order-1 relative min-h-[420px] p-8 pb-0 sm:min-h-[520px] sm:p-14 sm:pb-0 lg:order-2 lg:min-h-full lg:p-16">
+          <div className="order-1 relative flex min-h-[420px] items-center justify-center p-8 pb-0 sm:min-h-[520px] sm:p-14 sm:pb-0 lg:order-2 lg:min-h-full lg:p-16">
             <div className="photo-halo absolute left-1/2 top-1/2 h-[76%] w-[72%] -translate-x-1/2 -translate-y-1/2 rounded-[50%]" />
-            <div className="hero-photo relative mx-auto h-[390px] max-w-[390px] overflow-hidden rounded-[48%_48%_44%_44%/38%_38%_56%_56%] border-[7px] border-white/75 shadow-[0_30px_65px_rgba(32,89,135,0.24)] sm:h-[510px] lg:h-[630px]">
+            <div className="hero-photo relative h-[410px] w-full max-w-[420px] overflow-hidden rounded-[50%] border-[7px] border-white/75 shadow-[0_30px_65px_rgba(32,89,135,0.24)] sm:h-[530px] lg:h-[650px]">
               <img
                 src={baptismPhoto}
                 alt="A baby being held during a baptism ceremony"
@@ -265,7 +266,7 @@ export default function App() {
               Ceremony <span className="gold-shimmer italic">& celebration</span>
             </h2>
             <p className="mt-6 max-w-xl text-sm leading-7 text-[#5b7891]">
-              Please share in our joy as Elijah is welcomed into the Christian faith, surrounded by
+              Please share in our joy as Jose is welcomed into the Christian faith, surrounded by
               the love and prayers of family and friends.
             </p>
 
@@ -319,7 +320,7 @@ export default function App() {
             Meet the <span className="gold-shimmer italic">Godparents</span>
           </h2>
           <p className="mx-auto mt-5 max-w-lg text-sm leading-7 text-[#597994]">
-            Two very special people will stand beside Elijah as he begins his journey of faith.
+            Two very special people will stand beside Jose as he begins his journey of faith.
           </p>
 
           <button

@@ -645,6 +645,10 @@
     height: 390px;
   }
 
+  .h-\[410px\] {
+    height: 410px;
+  }
+
   .h-full {
     height: 100%;
   }
@@ -725,6 +729,10 @@
     max-width: 390px;
   }
 
+  .max-w-\[420px\] {
+    max-width: 420px;
+  }
+
   .max-w-lg {
     max-width: var(--container-lg);
   }
@@ -747,10 +755,6 @@
 
   .min-w-48 {
     min-width: calc(var(--spacing) * 48);
-  }
-
-  .min-w-52 {
-    min-width: calc(var(--spacing) * 52);
   }
 
   .min-w-56 {
@@ -869,6 +873,16 @@
 
   .rounded-xl {
     border-radius: var(--radius-xl);
+  }
+
+  .rounded-t-\[50\%\] {
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+  }
+
+  .rounded-b-\[2rem\] {
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
   }
 
   .border {
@@ -1277,6 +1291,10 @@
     line-height: var(--tw-leading, var(--text-xs--line-height));
   }
 
+  .text-\[\.52em\] {
+    font-size: .52em;
+  }
+
   .text-\[\.54em\] {
     font-size: .54em;
   }
@@ -1291,6 +1309,10 @@
 
   .text-\[11px\] {
     font-size: 11px;
+  }
+
+  .text-\[clamp\(2\.8rem\,6vw\,5rem\)\] {
+    font-size: clamp(2.8rem, 6vw, 5rem);
   }
 
   .text-\[clamp\(4\.8rem\,11vw\,8\.75rem\)\] {
@@ -1310,6 +1332,11 @@
   .leading-\[0\.69\] {
     --tw-leading: .69;
     line-height: .69;
+  }
+
+  .leading-\[0\.82\] {
+    --tw-leading: .82;
+    line-height: .82;
   }
 
   .leading-\[0\.95\] {
@@ -1335,6 +1362,11 @@
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
+  }
+
+  .tracking-\[-0\.045em\] {
+    --tw-tracking: -.045em;
+    letter-spacing: -.045em;
   }
 
   .tracking-\[-0\.055em\] {
@@ -1728,10 +1760,6 @@
     outline-color: #b8862e;
   }
 
-  .focus-visible\:outline-\[\#e2b95f\]:focus-visible {
-    outline-color: #e2b95f;
-  }
-
   .disabled\:opacity-60:disabled {
     opacity: .6;
   }
@@ -1748,6 +1776,10 @@
 
     .sm\:h-\[510px\] {
       height: 510px;
+    }
+
+    .sm\:h-\[530px\] {
+      height: 530px;
     }
 
     .sm\:min-h-\[520px\] {
@@ -1847,6 +1879,10 @@
 
     .lg\:h-\[630px\] {
       height: 630px;
+    }
+
+    .lg\:h-\[650px\] {
+      height: 650px;
     }
 
     .lg\:min-h-full {

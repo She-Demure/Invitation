@@ -2,11 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 
-function supabaseConfig() {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) throw new Error("RSVP storage is not configured.");
-  return { url: url.replace(/\/$/, ""), key };
+function supabaseUrl() {
+  const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+  if (!url) throw new Error("RSVP storage is not configured.");
+  return url.replace(/\/$/, "");
 }
 
 export async function POST(request: NextRequest) {
@@ -22,10 +21,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Please check your RSVP details." }, { status: 400 });
   }
   try {
-    const { url, key } = supabaseConfig();
+    const url = supabaseUrl();
+    const key = process.env.SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+    if (!key) throw new Error("Supabase publishable key is missing.");
     const result = await fetch(`${url}/rest/v1/rsvps`, {
       method: "POST",
-      headers: { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json", Prefer: "return=minimal" },
+      headers: { apikey: key, "Content-Type": "application/json", Prefer: "return=minimal" },
       body: JSON.stringify({ name, attending, party_size: attending ? partySize : 0, note }),
       cache: "no-store",
     });
@@ -42,9 +43,11 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
   }
   try {
-    const { url, key } = supabaseConfig();
+    const url = supabaseUrl();
+    const key = process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY;
+    if (!key) throw new Error("Supabase secret key is missing.");
     const result = await fetch(`${url}/rest/v1/rsvps?select=id,name,attending,party_size,note,created_at&order=created_at.desc`, {
-      headers: { apikey: key, Authorization: `Bearer ${key}` }, cache: "no-store",
+      headers: { apikey: key }, cache: "no-store",
     });
     if (!result.ok) throw new Error("Storage request failed.");
     return NextResponse.json(await result.json());

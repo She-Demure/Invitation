@@ -9,5 +9,13 @@ create table if not exists public.rsvps (
 
 alter table public.rsvps enable row level security;
 
--- The Next.js server uses the service role key. Do not add public table policies
--- or expose that key in browser code.
+grant insert on public.rsvps to anon;
+
+create policy "Guests can submit RSVPs"
+  on public.rsvps
+  for insert
+  to anon
+  with check (true);
+
+-- Do not grant public read access. The Next.js admin API uses the service role
+-- key on the server after checking RSVP_ADMIN_PASSWORD.

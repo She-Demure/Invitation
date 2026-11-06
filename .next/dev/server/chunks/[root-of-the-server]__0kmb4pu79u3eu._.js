@@ -85,14 +85,10 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/server.js [app-route] (ecmascript)");
 ;
 const dynamic = "force-dynamic";
-function supabaseConfig() {
-    const url = process.env.SUPABASE_URL;
-    const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-    if (!url || !key) throw new Error("RSVP storage is not configured.");
-    return {
-        url: url.replace(/\/$/, ""),
-        key
-    };
+function supabaseUrl() {
+    const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+    if (!url) throw new Error("RSVP storage is not configured.");
+    return url.replace(/\/$/, "");
 }
 async function POST(request) {
     let body;
@@ -123,12 +119,13 @@ async function POST(request) {
         });
     }
     try {
-        const { url, key } = supabaseConfig();
+        const url = supabaseUrl();
+        const key = process.env.SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+        if (!key) throw new Error("Supabase publishable key is missing.");
         const result = await fetch(`${url}/rest/v1/rsvps`, {
             method: "POST",
             headers: {
                 apikey: key,
-                Authorization: `Bearer ${key}`,
                 "Content-Type": "application/json",
                 Prefer: "return=minimal"
             },
@@ -162,11 +159,12 @@ async function GET(request) {
         });
     }
     try {
-        const { url, key } = supabaseConfig();
+        const url = supabaseUrl();
+        const key = process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY;
+        if (!key) throw new Error("Supabase secret key is missing.");
         const result = await fetch(`${url}/rest/v1/rsvps?select=id,name,attending,party_size,note,created_at&order=created_at.desc`, {
             headers: {
-                apikey: key,
-                Authorization: `Bearer ${key}`
+                apikey: key
             },
             cache: "no-store"
         });
