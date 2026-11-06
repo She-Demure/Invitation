@@ -1,0 +1,5 @@
+{
+  "/admin/page": "app/admin/page.js",
+  "/api/rsvps/route": "app/api/rsvps/route.js",
+  "/page": "app/page.js"
+}
