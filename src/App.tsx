@@ -4,17 +4,16 @@ import { useState } from "react";
 import RsvpForm from "./RsvpForm";
 
 const invitation = {
-  displayDate: "Saturday, July 18, 2026",
+  displayDate: "Example:Saturday, July 18, 2026",
   calendarStart: "20260718T103000",
   calendarEnd: "20260718T133000",
-  church: "St. Augustine Church",
-  churchAddress: "1400 Miller Road, Coral Gables, FL",
-  reception: "The Garden Room",
-  receptionAddress: "2801 Ponce de Leon, Coral Gables, FL",
+  church: "Saint Thomas Aquinas Parish, Mangaldan",
+  churchAddress: "3CC5+J26, Rizal Ave, Mangaldan, 2432 Pangasinan",
+  reception: "N/A",
+  receptionAddress: "N/A",
 };
 
-const baptismPhoto =
-  "https://images.unsplash.com/photo-1721862650498-1e7274dec2ec?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&q=88&w=1400";
+const baptismPhoto = "/baby-first-photo.png";
 const babyPhoto =
   "https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&q=88&w=1400";
 
@@ -229,7 +228,7 @@ export default function App() {
             <div className="hero-photo relative h-[410px] w-full max-w-[420px] overflow-hidden rounded-[50%] border-[7px] border-white/75 shadow-[0_30px_65px_rgba(32,89,135,0.24)] sm:h-[530px] lg:h-[650px]">
               <img
                 src={baptismPhoto}
-                alt="A baby being held during a baptism ceremony"
+                alt="A newborn baby in a blue knit blanket beside a teddy bear"
                 className="h-full w-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#2e6b9c]/25 via-transparent to-white/10" />
